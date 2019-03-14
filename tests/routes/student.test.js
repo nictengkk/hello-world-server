@@ -14,7 +14,7 @@ describe("Students", () => {
     test("Gets all students", () => {
       return request(app)
         .get(route)
-        .expect(200)
+        .expect(200) //anything before .expect is done by the client, .expect is whatever the server is supposed to respond with
         .expect("Content-type", /json/) //expect is part of superTest
         .expect(studentsData);
     });
@@ -24,7 +24,7 @@ describe("Students", () => {
         request(app)
           .post(route)
           .send({ name: "Tom" }) //setting fake data
-          .set("Accept", "application/json") //when do we use set? set is an API method for SuperAgent lib.
+          .set("Accept", "application/json") //setting the Accept property in request header to be application/json so the server can respond with this content-type
           .expect(201)
           //.then(res => {
           //expect(res.body.id).toEqual(expect.any(String)) //Jest syntax

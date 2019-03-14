@@ -16,6 +16,8 @@ app.use(express.urlencoded({ extended: true }));
 
 //any routes declared before this will not be affected by the logger function.
 app.use(logger);
+app.use("/", index);
+app.use("/students", students);
 
 app.get("/about", (req, res) => {
   res.send("About me");
@@ -40,8 +42,5 @@ app.post("/form", (req, res) => {
   const { name } = req.body;
   res.send(`Hello, ${name} 👋`);
 });
-
-app.use("/", index);
-app.use("/students", students);
 
 module.exports = app;
