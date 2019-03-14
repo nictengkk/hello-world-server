@@ -1,3 +1,5 @@
+//app.js is used to insert middleware, all routes should be placed in routes folder
+
 const express = require("express");
 const app = express();
 

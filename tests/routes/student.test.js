@@ -20,12 +20,19 @@ describe("Students", () => {
     });
 
     test("Adds a new student", () => {
-      return request(app)
-        .post(route)
-        .send({ name: "Tom" }) //setting fake data
-        .set("Accept", "application/json") //when do we use set? set is an API method for SuperAgent lib.
-        .expect(201)
-        .expect({ id: "123", name: "Tom" });
+      return (
+        request(app)
+          .post(route)
+          .send({ name: "Tom" }) //setting fake data
+          .set("Accept", "application/json") //when do we use set? set is an API method for SuperAgent lib.
+          .expect(201)
+          //.then(res => {
+          //expect(res.body.id).toEqual(expect.any(String)) //Jest syntax
+          //expect(res.subjects).toEqual(expect.any(Array)) //Jest syntax
+          //expect(res.body.name).toEqual("bobun") //Jest syntax
+          //})
+          .expect({ id: "123", name: "Tom" })
+      ); //superTest syntax
     });
   });
 

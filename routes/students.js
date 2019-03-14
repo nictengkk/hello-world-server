@@ -15,7 +15,8 @@ router
   })
   .post((req, res) => {
     const student = req.body; //req.body only has {name: "Tom"}
-    student.id = "123"; //
+    student.id = "123";
+    student.subjects = [];
     res.status(201); //sets a status of 201 to be responded.
     res.json(student); //sends back a JSON response.
   });
